@@ -15,18 +15,26 @@ namespace AzureFunctionsUniversity
 			_logger = loggerFactory.CreateLogger<HelloWorldHttpTrigger>();
 		}
 
-		[Function("HelloWorldHttpTrigger")]
-		public HttpResponseData Run([HttpTrigger(AuthorizationLevel.Function, nameof(HttpMethod.Get))] HttpRequestData request)
+		[Function(nameof(HelloWorldHttpTrigger))]
+		public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, nameof(HttpMethod.Get))] HttpRequestData request)
 		{
 			_logger.LogInformation("C# HTTP trigger function processed a request.");
 
 			var queryStringCollection = HttpUtility.ParseQueryString(request.Url.Query);
 			var name = queryStringCollection["name"];
-
 			var response = request.CreateResponse(HttpStatusCode.OK);
-			response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
 
-			response.WriteString($"Hello, {name}!");
+			if (string.IsNullOrEmpty(name))
+			{
+				response.StatusCode = HttpStatusCode.BadRequest;
+				await response.WriteStringAsync("Please provide a value for the name query string parameter.");
+			}
+			else
+			{
+				response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
+				await response.WriteStringAsync($"Hello, {name}!");
+			}
+
 
 			return response;
 		}
