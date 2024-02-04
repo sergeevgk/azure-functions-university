@@ -1,26 +1,25 @@
+using System.Net;
+using System.Web;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
-using System.Net;
-using System.Web;
 
-namespace AzureFunctionsUniversity
+namespace AzureFunctionsUniversity.Lesson1
 {
-	public class HelloWorldHttpTriggerWithRoute
+	public class HelloWorldHttpTrigger
 	{
 		private readonly ILogger _logger;
 
-		public HelloWorldHttpTriggerWithRoute(ILoggerFactory loggerFactory)
+		public HelloWorldHttpTrigger(ILoggerFactory loggerFactory)
 		{
-			_logger = loggerFactory.CreateLogger<HelloWorldHttpTriggerWithRoute>();
+			_logger = loggerFactory.CreateLogger<HelloWorldHttpTrigger>();
 		}
 
-		[Function(nameof(HelloWorldHttpTriggerWithRoute))]
-		public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, nameof(HttpMethod.Get), nameof(HttpMethod.Post), Route = "HelloWorldHttpTriggerWithRoute/{greeting:alpha?}")] 
-			HttpRequestData request,
-			string greeting)
+		[Function(nameof(HelloWorldHttpTrigger))]
+		public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, nameof(HttpMethod.Get), nameof(HttpMethod.Post))] HttpRequestData request)
 		{
 			_logger.LogInformation("HTTP trigger function processed a request.");
+
 
 			string name;
 			if (request.Method.Equals(nameof(HttpMethod.Get), StringComparison.OrdinalIgnoreCase))
@@ -43,8 +42,9 @@ namespace AzureFunctionsUniversity
 			else
 			{
 				response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
-				await response.WriteStringAsync($"{greeting ?? "Hello"}, {name}!");
+				await response.WriteStringAsync($"Hello, {name}!");
 			}
+
 
 			return response;
 		}

@@ -1,10 +1,10 @@
-using AzureFunctionsUniversity.Models;
+using AzureFunctionsUniversity.Lesson1.Models;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
 using System.Net;
 
-namespace AzureFunctionsUniversity
+namespace AzureFunctionsUniversity.Lesson1
 {
 	public class HelloWorldHttpTriggerWithJsonPost
 	{
