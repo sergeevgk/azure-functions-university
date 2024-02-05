@@ -11,9 +11,9 @@ namespace AzureFunctionsUniversity.Lesson2
 	public class RefitHttpTrigger
 	{
 		private readonly ILogger<RefitHttpTrigger> _logger;
-		private readonly IHttpBinOrgApi _client;
+		private readonly IHttpBinOrgApiClient _client;
 
-		public RefitHttpTrigger(ILogger<RefitHttpTrigger> logger, IHttpBinOrgApi client)
+		public RefitHttpTrigger(ILogger<RefitHttpTrigger> logger, IHttpBinOrgApiClient client)
 		{
 			_logger = logger;
 			_client = client;

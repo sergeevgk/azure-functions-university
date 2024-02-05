@@ -2,7 +2,7 @@
 
 namespace AzureFunctionsUniversity.Lesson2.Contract
 {
-	public interface IHttpBinOrgApi
+	public interface IHttpBinOrgApiClient
 	{
 		[Get("/status/{code}")]
 		Task<HttpContent> StatusCodes(int code);
