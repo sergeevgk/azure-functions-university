@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctionsUniversity_Introduction", "src\AzureFunctionsUniversity_Introduction\AzureFunctionsUniversity_Introduction.csproj", "{F22EB732-E0E7-4169-A640-014CA10DDAEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureFrunctionsUniversity_BlobBinding", "src\AzureFrunctionsUniversity_BlobBinding\AzureFrunctionsUniversity_BlobBinding.csproj", "{80D72D74-56AE-4999-B078-99E871EFDD25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFrunctionsUniversity_BlobBinding", "src\AzureFrunctionsUniversity_BlobBinding\AzureFrunctionsUniversity_BlobBinding.csproj", "{80D72D74-56AE-4999-B078-99E871EFDD25}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
