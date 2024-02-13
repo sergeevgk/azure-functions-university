@@ -17,7 +17,7 @@ namespace AzureFrunctionsUniversity_BlobBinding
 		public GetPlayerWithStringInputDynamic(ILogger<GetPlayerWithStringInputDynamic> logger, IAzureClientFactory<BlobServiceClient> blobClientFactory)
 		{
 			_logger = logger;
-			_playerContainerClient = blobClientFactory.CreateClient(StorePlayerWithContainerBlobOutput.PlayerStorageClientName).GetBlobContainerClient("players");
+			_playerContainerClient = blobClientFactory.CreateClient(StorePlayerWithContainerBlobOutput.PLAYER_STORAGE_CLIENT_NAME).GetBlobContainerClient("players");
 			_playerContainerClient.CreateIfNotExists();
 		}
 

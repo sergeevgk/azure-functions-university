@@ -13,9 +13,9 @@ var host = new HostBuilder()
 		services.AddAzureClients(clientBuilder =>
 		{
 			clientBuilder.AddBlobServiceClient(hostContext.Configuration.GetSection("AzureWebJobsStorage"))
-				.WithName(StorePlayerWithContainerBlobOutput.PlayerStorageClientName);
+				.WithName(StorePlayerWithContainerBlobOutput.PLAYER_STORAGE_CLIENT_NAME);
 			clientBuilder.AddBlobServiceClient(hostContext.Configuration.GetSection("AzureWebJobsStorage"))
-				.WithName(DeveloperResumeFunctionBlob.ResumeStorageClientName);
+				.WithName(DeveloperResumeFunctionBlob.RESUME_STORAGE_CLIENT_NAME);
 		});
 	})
 	.Build();

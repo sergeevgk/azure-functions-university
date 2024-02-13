@@ -13,14 +13,14 @@ namespace AzureFrunctionsUniversity_BlobBinding
 {
 	public class StorePlayerWithContainerBlobOutput
 	{
-		public const string PlayerStorageClientName = nameof(_playerContainerClient);
+		public const string PLAYER_STORAGE_CLIENT_NAME = nameof(_playerContainerClient);
 		private readonly ILogger<StorePlayerWithContainerBlobOutput> _logger;
 		private readonly BlobContainerClient _playerContainerClient;
 
 		public StorePlayerWithContainerBlobOutput(ILogger<StorePlayerWithContainerBlobOutput> logger, IAzureClientFactory<BlobServiceClient> blobClientFactory)
 		{
 			_logger = logger;
-			_playerContainerClient = blobClientFactory.CreateClient(PlayerStorageClientName).GetBlobContainerClient("players");
+			_playerContainerClient = blobClientFactory.CreateClient(PLAYER_STORAGE_CLIENT_NAME).GetBlobContainerClient("players");
 			_playerContainerClient.CreateIfNotExists();
 		}
 

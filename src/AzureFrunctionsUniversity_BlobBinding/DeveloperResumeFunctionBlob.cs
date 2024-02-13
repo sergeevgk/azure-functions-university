@@ -10,7 +10,7 @@ namespace AzureFrunctionsUniversity_BlobBinding
 {
 	public class DeveloperResumeFunctionBlob
 	{
-		public const string ResumeStorageClientName = nameof(_resumeContainerClient);
+		public const string RESUME_STORAGE_CLIENT_NAME = nameof(_resumeContainerClient);
 		private readonly BlobContainerClient _resumeContainerClient;
 
 		private readonly ILogger<DeveloperResumeFunctionBlob> _logger;
@@ -18,7 +18,7 @@ namespace AzureFrunctionsUniversity_BlobBinding
 		public DeveloperResumeFunctionBlob(ILogger<DeveloperResumeFunctionBlob> logger, IAzureClientFactory<BlobServiceClient> blobClientFactory)
 		{
 			_logger = logger;
-			_resumeContainerClient = blobClientFactory.CreateClient(ResumeStorageClientName).GetBlobContainerClient("samples-workitems");
+			_resumeContainerClient = blobClientFactory.CreateClient(RESUME_STORAGE_CLIENT_NAME).GetBlobContainerClient("samples-workitems");
 			_resumeContainerClient.CreateIfNotExists();
 		}
 
