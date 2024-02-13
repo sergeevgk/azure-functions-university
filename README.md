@@ -16,3 +16,7 @@ It requires to pass an HttpRequest or HttpRequestData parameter with this **[Htt
 	This no longer works **for isolated worker model** as IBinder and Binder, as well as CloudBlobContainer are members of Microsoft.Azure.WebJobs.
 	I did not find a way to implement this part of lesson, so it can be skipped if one works with latest version of .NET, I guess.
 	It is recommended to register and use appropriate Sdk Clients (e.g. BlobServiceClient) explicitly instead.
+
+3. Reference examples for all kinds of Bindings using the isolation worker Extensions Sdk:
+https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions/
+Especially worth checking the [Blob section](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions/Blob/BlobInputBindingSamples.cs) as the examples listed there are more clear and "conventional" then the \[at least initial\] implementations provided in this repository in AzureFrunctionsUniversity_BlobBinding.
