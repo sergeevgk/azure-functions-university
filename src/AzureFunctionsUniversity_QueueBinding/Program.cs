@@ -14,6 +14,8 @@ var host = new HostBuilder()
 		{
 			clientBuilder.AddQueueServiceClient(hostContext.Configuration.GetSection("AzureWebJobsStorage"))
 				.WithName(NewPlayerWithStringQueueOutputDynamicBinding.QUEUE_CLIENT_NAME);
+			clientBuilder.AddBlobServiceClient(hostContext.Configuration.GetSection("AzureWebJobsStorage"))
+				.WithName(HelloWorldQueueTrigger.PLAYER_STORAGE_CLIENT_NAME);
 		});
 	})
 	.Build();
