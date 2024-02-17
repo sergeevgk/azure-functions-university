@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctionsUniversity_In
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFrunctionsUniversity_BlobBinding", "src\AzureFrunctionsUniversity_BlobBinding\AzureFrunctionsUniversity_BlobBinding.csproj", "{80D72D74-56AE-4999-B078-99E871EFDD25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureFunctionsUniversity_QueueBinding", "src\AzureFunctionsUniversity_QueueBinding\AzureFunctionsUniversity_QueueBinding.csproj", "{CCB943C6-1157-4EC9-AB57-B075018C6F85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctionsUniversity_QueueBinding", "src\AzureFunctionsUniversity_QueueBinding\AzureFunctionsUniversity_QueueBinding.csproj", "{CCB943C6-1157-4EC9-AB57-B075018C6F85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
