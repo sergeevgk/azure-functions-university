@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFrunctionsUniversity_B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctionsUniversity_QueueBinding", "src\AzureFunctionsUniversity_QueueBinding\AzureFunctionsUniversity_QueueBinding.csproj", "{CCB943C6-1157-4EC9-AB57-B075018C6F85}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureFunctionsUniversity_TableBinding", "src\AzureFunctionsUniversity_TableBinding\AzureFunctionsUniversity_TableBinding.csproj", "{F03BB992-EF43-4F0D-8804-64D3753CE67C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{CCB943C6-1157-4EC9-AB57-B075018C6F85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCB943C6-1157-4EC9-AB57-B075018C6F85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCB943C6-1157-4EC9-AB57-B075018C6F85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F03BB992-EF43-4F0D-8804-64D3753CE67C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F03BB992-EF43-4F0D-8804-64D3753CE67C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F03BB992-EF43-4F0D-8804-64D3753CE67C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F03BB992-EF43-4F0D-8804-64D3753CE67C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
