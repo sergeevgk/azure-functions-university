@@ -2,5 +2,6 @@
 
 public static class TableConfig
 {
-	public const string TABLE_NAME = "players";
+	public const string PLAYER_TABLE_NAME = "players";
+	public const string ACCOMPLISHMENTS_TABLE_NAME = "accomplishments";
 }

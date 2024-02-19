@@ -16,7 +16,7 @@ namespace AzureFunctionsUniversity_TableBinding
 		}
 
 		[Function(nameof(StorePlayerTableOutput))]
-		[TableOutput(TableConfig.TABLE_NAME)]
+		[TableOutput(TableConfig.PLAYER_TABLE_NAME)]
 		public PlayerEntity Run([HttpTrigger(AuthorizationLevel.Function, nameof(HttpMethods.Post))] HttpRequestData request, [FromBody] PlayerEntity playerEntity)
 		{
 			_logger.LogInformation("C# HTTP trigger function processed a request.");

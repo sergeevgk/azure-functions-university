@@ -20,7 +20,7 @@ namespace AzureFunctionsUniversity_TableBinding
 		[Function(nameof(GetPlayerByRegionAndIdCloudTableInput))]
 		public HttpResponseData Run(
 			[HttpTrigger(AuthorizationLevel.Function, nameof(HttpMethods.Get), Route = "GetPlayerByRegionAndIdCloudTableInput/{region}/{id}")] HttpRequestData request,
-			[TableInput(TableConfig.TABLE_NAME, partitionKey: "{region}", rowKey: "{id}")] TableEntity playerEntity)
+			[TableInput(TableConfig.PLAYER_TABLE_NAME, partitionKey: "{region}", rowKey: "{id}")] TableEntity playerEntity)
 		{
 			var playerEntityContent = JsonConvert.SerializeObject(playerEntity);
 			_logger.LogInformation($"C# HTTP trigger function processed a request. Entity found: {playerEntityContent}");

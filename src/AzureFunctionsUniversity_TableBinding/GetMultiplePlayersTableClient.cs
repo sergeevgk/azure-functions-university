@@ -19,7 +19,7 @@ namespace AzureFunctionsUniversity_TableBinding
 		[Function(nameof(GetMultiplePlayersTableClient))]
 		public async Task<HttpResponseData> Run(
 			[HttpTrigger(AuthorizationLevel.Function, nameof(HttpMethods.Get))] HttpRequestData request, 
-			[TableInput(TableConfig.TABLE_NAME)] TableClient table)
+			[TableInput(TableConfig.PLAYER_TABLE_NAME)] TableClient table)
 		{
 			_logger.LogInformation("C# HTTP trigger function processed a request.");
 			string region = request.Query["region"];
