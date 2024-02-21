@@ -1,6 +1,5 @@
-using AzureFrunctionsUniversity_QueueBinding.Models;
 using AzureFunctionsUniversity_QueueBinding.Models;
-using Microsoft.AspNetCore.Http;
+using AzureFunctionsUniversity_SharedEntities;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;

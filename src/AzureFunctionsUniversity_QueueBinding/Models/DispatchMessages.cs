@@ -1,4 +1,4 @@
-﻿using AzureFrunctionsUniversity_QueueBinding.Models;
+﻿using AzureFunctionsUniversity_SharedEntities;
 using Microsoft.Azure.Functions.Worker;
 
 namespace AzureFunctionsUniversity_QueueBinding.Models;

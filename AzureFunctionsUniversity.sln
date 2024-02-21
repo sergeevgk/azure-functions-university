@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctionsUniversity_Qu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctionsUniversity_TableBinding", "src\AzureFunctionsUniversity_TableBinding\AzureFunctionsUniversity_TableBinding.csproj", "{F03BB992-EF43-4F0D-8804-64D3753CE67C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureFunctionsUniversity_SharedEntities", "src\SharedEntities\AzureFunctionsUniversity_SharedEntities.csproj", "{B6BC6599-03E1-4062-8A00-DD7764AD93D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctionsUniversity_SharedEntities", "src\SharedEntities\AzureFunctionsUniversity_SharedEntities.csproj", "{B6BC6599-03E1-4062-8A00-DD7764AD93D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
