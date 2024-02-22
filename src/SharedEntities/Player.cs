@@ -1,22 +1,23 @@
-﻿using System.Text.Json.Serialization;
+﻿using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace AzureFunctionsUniversity_SharedEntities;
 public class Player
 {
 	public Player(){}
 
-	[JsonPropertyName("id")]
+	[JsonProperty("id")]
 	public string Id { get; set; }
 
-	[JsonPropertyName("nickName")]
+	[JsonProperty("nickName")]
 	public string NickName { get; set; }
 
-	[JsonPropertyName("playerId")]
+	[JsonProperty("playerId")]
 	public int PlayerId { get; set; }
 
-	[JsonPropertyName("email")]
+	[JsonProperty("email")]
 	public string Email { get; set; }
 
-	[JsonPropertyName("region")]
+	[JsonProperty("region")]
 	public string Region { get; set; }
 }

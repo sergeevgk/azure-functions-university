@@ -1,6 +1,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Azure.Core.Serialization;
+using Microsoft.Azure.Cosmos.Fluent;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -13,6 +14,17 @@ var host = new HostBuilder()
 	{
 		services.AddApplicationInsightsTelemetryWorkerService();
 		services.ConfigureFunctionsApplicationInsights();
+		services.AddSingleton(s => {
+			var connectionString = Environment.GetEnvironmentVariable("CosmosDBConnection");
+			if (string.IsNullOrEmpty(connectionString))
+			{
+				throw new InvalidOperationException(
+					"Please specify a valid Cosmos DB Connection in the appSettings.json file or your Azure Functions Settings.");
+			}
+
+			return new CosmosClientBuilder(connectionString).WithConnectionModeDirect()
+				.Build();
+		});
 	})
 	//.ConfigureFunctionsWorkerDefaults((IFunctionsWorkerApplicationBuilder workerApplication) =>
 	//{
