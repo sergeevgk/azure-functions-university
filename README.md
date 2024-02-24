@@ -18,5 +18,15 @@ It requires to pass an HttpRequest or HttpRequestData parameter with this **[Htt
 	It is recommended to register and use appropriate Sdk Clients (e.g. BlobServiceClient) explicitly instead.
 
 3. Reference examples for all kinds of Bindings using the isolation worker Extensions Sdk:
-https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions/
-Especially worth checking the [Blob section](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions/Blob/BlobInputBindingSamples.cs) as the examples listed there are more clear and "conventional" then the \[at least initial\] implementations provided in this repository in AzureFrunctionsUniversity_BlobBinding.
+	https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions/
+	Especially worth checking the [Blob section](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions/Blob/BlobInputBindingSamples.cs) as the examples listed there are more clear and "conventional" then the \[at least initial\] implementations provided in this repository in AzureFrunctionsUniversity_BlobBinding.
+
+4. App Configuration Service registration for isolated worker no longer use FunctionsStartup. Just add this to Program.cs:
+	```
+	.ConfigureAppConfiguration(builder =>
+	{
+		var azureAppConfigConnection = Environment.GetEnvironmentVariable("AppConfigurationConnectionString");
+		builder.AddAzureAppConfiguration(azureAppConfigConnection);
+	})
+	```
+	[Documentation for adding these Configuration settings](https://learn.microsoft.com/en-us/azure/azure-app-configuration/quickstart-azure-functions-csharp?tabs=isolated-process).
