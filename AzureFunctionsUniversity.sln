@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctionsUniversity_Ta
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctionsUniversity_SharedEntities", "src\SharedEntities\AzureFunctionsUniversity_SharedEntities.csproj", "{B6BC6599-03E1-4062-8A00-DD7764AD93D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureFrunctionsUniversity_CosmosDB", "src\AzureFrunctionsUniversity_CosmosDB\AzureFrunctionsUniversity_CosmosDB.csproj", "{869DB862-669C-4AAC-BEBF-F61A6ABFCBC7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFrunctionsUniversity_CosmosDB", "src\AzureFrunctionsUniversity_CosmosDB\AzureFrunctionsUniversity_CosmosDB.csproj", "{869DB862-669C-4AAC-BEBF-F61A6ABFCBC7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctionsUniversity_Configuration", "src\AzureFunctionsUniversity_Configuration\AzureFunctionsUniversity_Configuration.csproj", "{B627CFD4-81E6-4F38-A9C2-900444FFE2AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{869DB862-669C-4AAC-BEBF-F61A6ABFCBC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{869DB862-669C-4AAC-BEBF-F61A6ABFCBC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{869DB862-669C-4AAC-BEBF-F61A6ABFCBC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B627CFD4-81E6-4F38-A9C2-900444FFE2AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B627CFD4-81E6-4F38-A9C2-900444FFE2AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B627CFD4-81E6-4F38-A9C2-900444FFE2AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B627CFD4-81E6-4F38-A9C2-900444FFE2AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
