@@ -19,6 +19,7 @@
     <PackageReference Include="Microsoft.Azure.Functions.Worker.ApplicationInsights" Version="1.2.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AzureFunctionsUniversity_SharedEntities\AzureFunctionsUniversity_SharedEntities.csproj" />
     <ProjectReference Include="..\SharedEntities\AzureFunctionsUniversity_SharedEntities.csproj" />
   </ItemGroup>
   <ItemGroup>

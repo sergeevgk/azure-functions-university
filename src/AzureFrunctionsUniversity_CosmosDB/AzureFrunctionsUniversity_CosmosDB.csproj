@@ -27,6 +27,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AzureFunctionsUniversity_SharedEntities\AzureFunctionsUniversity_SharedEntities.csproj" />
     <ProjectReference Include="..\SharedEntities\AzureFunctionsUniversity_SharedEntities.csproj" />
   </ItemGroup>
   <ItemGroup>
