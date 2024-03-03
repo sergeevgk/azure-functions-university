@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFrunctionsUniversity_C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctionsUniversity_Configuration", "src\AzureFunctionsUniversity_Configuration\AzureFunctionsUniversity_Configuration.csproj", "{B627CFD4-81E6-4F38-A9C2-900444FFE2AC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureFunctionsUniversity_DurableFunctions", "src\AzureFunctionsUniversity_DurableFunctions\AzureFunctionsUniversity_DurableFunctions.csproj", "{4E83FB0C-03FD-4EBC-B530-026F647F459E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{B627CFD4-81E6-4F38-A9C2-900444FFE2AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B627CFD4-81E6-4F38-A9C2-900444FFE2AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B627CFD4-81E6-4F38-A9C2-900444FFE2AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E83FB0C-03FD-4EBC-B530-026F647F459E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E83FB0C-03FD-4EBC-B530-026F647F459E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E83FB0C-03FD-4EBC-B530-026F647F459E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E83FB0C-03FD-4EBC-B530-026F647F459E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
