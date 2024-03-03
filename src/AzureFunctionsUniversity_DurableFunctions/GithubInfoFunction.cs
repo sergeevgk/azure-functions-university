@@ -5,7 +5,6 @@ using Microsoft.DurableTask.Client;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Octokit;
-using System.Text.Json.Serialization;
 
 namespace AzureFunctionsUniversity_DurableFunctions
 {
@@ -70,11 +69,5 @@ namespace AzureFunctionsUniversity_DurableFunctions
 			// See https://learn.microsoft.com/azure/azure-functions/durable/durable-functions-http-api#start-orchestration
 			return client.CreateCheckStatusResponse(req, instanceId);
 		}
-	}
-
-	internal class GithubInput
-	{
-		[JsonPropertyName("repositoryName")]
-		public string RepoName { get; set; }
 	}
 }
