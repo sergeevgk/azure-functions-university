@@ -34,3 +34,16 @@ It requires to pass an HttpRequest or HttpRequestData parameter with this **[Htt
 	```
 	[Documentation for adding these Configuration settings](https://learn.microsoft.com/en-us/azure/azure-app-configuration/quickstart-azure-functions-csharp?tabs=isolated-process).
 
+5. For Durable functions (**isolated process model, .NET 8**) the default example by Microsoft does not work.
+	One should add 
+	```
+	services.Configure<KestrelServerOptions>(options =>
+	{
+		options.AllowSynchronousIO = true;
+	});
+	``` 
+	as a workaround. For more options check this issue: https://github.com/Azure/azure-functions-durable-extension/issues/2683.
+	However, it seems that the problem is not in Durable Functions extensions, but in Azure Functions Dotnet worker https://github.com/Azure/azure-functions-dotnet-worker. I didn't find the completely related issue there, these ones are most relevant probably:
+	 - https://github.com/Azure/azure-functions-dotnet-worker/issues/2227, 
+	 - https://github.com/Azure/azure-functions-dotnet-worker/issues/2127, 
+	 - https://github.com/Azure/azure-functions-dotnet-worker/issues/2205.
