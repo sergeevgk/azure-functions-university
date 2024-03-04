@@ -42,7 +42,7 @@ namespace AzureFunctionsUniversity_DurableFunctions
 				outputs = await context.CallActivityAsync<string>(nameof(GetUserDetailsByIdWithTemporalErrorsAsync), userLogin, retryOptions);
 
 			}
-			catch (Exception ex)
+			catch (TaskFailedException ex)
 			{
 				logger.LogError(ex.Message);
 				throw;
