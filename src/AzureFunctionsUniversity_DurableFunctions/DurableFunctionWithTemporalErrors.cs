@@ -5,6 +5,7 @@ using Microsoft.DurableTask.Client;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Octokit;
+using System;
 
 namespace AzureFunctionsUniversity_DurableFunctions
 {
@@ -28,18 +29,39 @@ namespace AzureFunctionsUniversity_DurableFunctions
 				1,
 				TimeSpan.FromMilliseconds(MAX_RETRY_INTERVAL_MS),
 				TimeSpan.FromMilliseconds(RETRY_TIMEOUT_MS)));
-
+			
 			string outputs = string.Empty;
 			try
 			{
+				const int timeoutInMs = 3000;
 				var input = context.GetInput<GithubInput>();
 				if (context.IsReplaying)
 				{
 					input.ShouldRaiseException = false;
 				}
-				var userLogin = await context.CallActivityAsync<string>(nameof(GetRepositoryDetailsByNameWithTemporalErrorsAsync), input, retryOptions);
 
-				outputs = await context.CallActivityAsync<string>(nameof(GetUserDetailsByIdWithTemporalErrorsAsync), userLogin, retryOptions);
+				using var cancellationTokenSource = new CancellationTokenSource();
+				var timeout = TimeSpan.FromMilliseconds(timeoutInMs);
+				var deadline = context.CurrentUtcDateTime.Add(timeout);
+				var timeoutTask = context.CreateTimer(deadline, cancellationTokenSource.Token);
+				var userLoginTask = context.CallActivityAsync<string>(nameof(GetRepositoryDetailsByNameWithTemporalErrorsAsync), input, retryOptions);
+
+				var winnerTask = await Task.WhenAny(timeoutTask, userLoginTask);
+				if (winnerTask == userLoginTask)
+				{
+					logger.LogInformation("Repository Information fetched before timeouts");
+					cancellationTokenSource.Cancel();
+
+					// the task has already completed, so just take the Result
+					var userLogin = userLoginTask.Result;
+					outputs = await context.CallActivityAsync<string>(nameof(GetUserDetailsByIdWithTemporalErrorsAsync), userLogin, retryOptions);
+				}
+				else
+				{
+					var message = $"Activity task {nameof(GetRepositoryDetailsByNameWithTemporalErrorsAsync)} timed out.";
+					logger.LogError(message);
+					return message;
+				}
 
 			}
 			catch (TaskFailedException ex)
@@ -60,6 +82,7 @@ namespace AzureFunctionsUniversity_DurableFunctions
 			{
 				throw new ApplicationException($"{nameof(GetRepositoryDetailsByNameWithTemporalErrorsAsync)}. Error occurred");
 			}
+			await Task.Delay(10000);
 
 			var githubClient = new GitHubClient(new ProductHeaderValue("MyGithubInfoFunctions_AzureFunctionsUniversity"));
 			var request = new SearchRepositoriesRequest(input.RepoName);
