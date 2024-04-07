@@ -10,21 +10,22 @@ namespace AzureFunctionsUniversity_DurableFunctionsAdvanced
 	public static class OnboardingStarter
 	{
 		[Function(nameof(OnboardingStarter))]
-		public static async Task<List<string>> RunOrchestrator(
+		public static async Task<string> RunOrchestrator(
 			[OrchestrationTrigger] TaskOrchestrationContext context)
 		{
 			ILogger logger = context.CreateReplaySafeLogger(nameof(OnboardingStarter));
-			logger.LogInformation("Starting the onboarding process.");
 			var onboardingTasks = new List<Task<string>>();
 			var input = context.GetInput<OnboardingEmployee>();
+			logger.LogInformation($"Starting the onboarding process for [{input.Name}] process [{input.ProcessId}].");
 
 			onboardingTasks.Add(context.CallActivityAsync<string>(nameof(AccessCardCreationActivity), input));
 			onboardingTasks.Add(context.CallActivityAsync<string>(nameof(ItEquipmentOrderActivity), input));
 			onboardingTasks.Add(context.CallActivityAsync<string>(nameof(WelcomeEmailActivity), input));
 
-			var result = (await Task.WhenAll(onboardingTasks)).ToList();
+			var results = await Task.WhenAll(onboardingTasks);
+			var resultAggregated = string.Join(",", results);
 
-			return result;
+			return resultAggregated;
 		}
 
 		[Function(nameof(AccessCardCreationActivity))]
