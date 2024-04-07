@@ -31,7 +31,7 @@ namespace AzureFunctionsUniversity_DurableFunctionsAdvanced
 		[Function(nameof(AccessCardCreationActivity))]
 		public static string AccessCardCreationActivity([ActivityTrigger] OnboardingEmployee employee, FunctionContext executionContext)
 		{
-			ILogger logger = executionContext.GetLogger("SayHello");
+			ILogger logger = executionContext.GetLogger(nameof(AccessCardCreationActivity));
 			var message = $"Access card created for {employee.Name} starting on {employee.StartDate}";
 			logger.LogInformation(message);
 
@@ -41,7 +41,7 @@ namespace AzureFunctionsUniversity_DurableFunctionsAdvanced
 		[Function(nameof(ItEquipmentOrderActivity))]
 		public static string ItEquipmentOrderActivity([ActivityTrigger] OnboardingEmployee employee, FunctionContext executionContext)
 		{
-			ILogger logger = executionContext.GetLogger("SayHello");
+			ILogger logger = executionContext.GetLogger(nameof(ItEquipmentOrderActivity));
 			var message = $"Role specific IT equipment (role: {employee.Role} was ordered for {employee.Name} starting on {employee.StartDate}.";
 			logger.LogInformation(message);
 
@@ -51,12 +51,13 @@ namespace AzureFunctionsUniversity_DurableFunctionsAdvanced
 		[Function(nameof(WelcomeEmailActivity))]
 		public static string WelcomeEmailActivity([ActivityTrigger] OnboardingEmployee employee, FunctionContext executionContext)
 		{
-			ILogger logger = executionContext.GetLogger("SayHello");
+			ILogger logger = executionContext.GetLogger(nameof(WelcomeEmailActivity));
 			var message = $"Welcome {employee.Name}! Happy to have you on board and see you on {employee.StartDate}!";
 			logger.LogInformation($"Sending email {message} to {employee.Email}.");
 
 			return message;
 		}
+
 
 		[Function("OnboardingStarter_HttpStart")]
 		public static async Task<HttpResponseData> HttpStart(
