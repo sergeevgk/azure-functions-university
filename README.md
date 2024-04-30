@@ -3,11 +3,10 @@ Learning Azure functions from https://github.com/marcduiker/azure-functions-univ
 
 
 # Important Notes at the beginning
-Check the guide for **isolated worker** before creating a new function project (especially with isolated worker like .NET 8): https://learn.microsoft.com/en-us/azure/azure-functions/dotnet-isolated-process-guide?tabs=windows. 
+Check [the guide for isolated worker](https://learn.microsoft.com/en-us/azure/azure-functions/dotnet-isolated-process-guide?tabs=windows) before creating a new function project (especially with isolated worker like .NET 8): . 
 It saves a lot of time because Microsoft.Azure.Functions.Worker.Extensions is the packages you should install. VS does not suggest you to, just says that it does not know the HttpTriggerAttribute...
 
-Check the guide for **Durable functions** (available for many programming languages). There are significant differences from the version used in Azure University course (at least for Azure Functions VSCode Extension).
-https://learn.microsoft.com/en-us/azure/azure-functions/durable/quickstart-ts-vscode?pivots=nodejs-model-v4
+Check [the guide for Durable functions](https://learn.microsoft.com/en-us/azure/azure-functions/durable/quickstart-ts-vscode?pivots=nodejs-model-v4) (available for many programming languages). There are significant differences from the version used in Azure University course (at least for Azure Functions VSCode Extension).
 
 # Other notes
 
