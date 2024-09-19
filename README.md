@@ -1,5 +1,5 @@
 # azure-functions-university
-Learning Azure functions from https://github.com/marcduiker/azure-functions-university
+Enhancing Azure functions expertise with https://github.com/marcduiker/azure-functions-university
 
 
 # Important Notes at the beginning
